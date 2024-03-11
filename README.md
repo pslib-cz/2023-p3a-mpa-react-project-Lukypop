@@ -1,8 +1,8 @@
-# Název mého projektu, programu, hry...
+# Bussiness Tour (velmi podobné Monopoly)
 
 ## Téma
 
-Tady bude krátký a úderný popis o účelu, významu, funkcionalitě...
+- hra s nápní všeobecně známé klasiky Monopoly
 
 ## Odkazy pro vývoj
 
