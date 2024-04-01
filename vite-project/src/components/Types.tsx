@@ -1,4 +1,4 @@
-type SHEEP = {
+export type SHEEP = {
     FieldId: number;
     type: "SHEEP";
 
@@ -10,7 +10,7 @@ type SHEEP = {
     color: string; //color of the field
 };
 
-type TAX = { 
+export type TAX = { 
     FieldId: number;
     type: "TAX";
 
@@ -18,7 +18,7 @@ type TAX = {
     price: number;
 };
 
-type PIMP = { //je to jako nádraží ale pasák
+export type PIMP = { //je to jako nádraží ale pasák
     FieldId: number;
     type: "PIMP";
 
@@ -27,32 +27,31 @@ type PIMP = { //je to jako nádraží ale pasák
     rent: number;
 };
 
-type CHANCE = {
+export type CHANCE = {
     FieldId: number;
     type: "CHANCE";
 
     name: string;
-    chanceId: number;
 };
-type START = {
+export type START = {
     FieldId: number;
     type: "START";
 
     name: string;
 };
-type TATRY = {
+export type TATRY = {
     FieldId: number;
     type: "TATRY";
 
     name: string;
 };
-type TAVERN = { //pošle hráče na náhodné pole, protože se opil :(
+export type TAVERN = { //pošle hráče na náhodné pole, protože se opil :(
     FieldId: number;
     type: "TAVERN";
 
     name: string;
 };
-type FREE_PARKING = {
+export type FREE_PARKING = {
     FieldId: number;
     type: "FREE_PARKING";
 
@@ -62,4 +61,4 @@ type FREE_PARKING = {
 
 
 
-export type Field = SHEEP | TAX | PIMP | CHANCE | START | TATRY | TAVERN | FREE_PARKING ;
+export type FieldType = SHEEP | TAX | PIMP | CHANCE | START | TATRY | TAVERN | FREE_PARKING ;
