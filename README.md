@@ -15,7 +15,7 @@
 ## Odkazy pro vývoj
 
 Zde budou živé linky na:
-- (figma)[https://www.figma.com/file/yJR1jv4kYWREn53B5HMXtH/Untitled?type=design&node-id=0%3A1&mode=design&t=b0Tl4LMXdZsjPibx-1]
+- [figma](https://www.figma.com/file/yJR1jv4kYWREn53B5HMXtH/Untitled?type=design&node-id=0%3A1&mode=design&t=b0Tl4LMXdZsjPibx-1)
 - odkaz na gh-pages projektu
 
 ### Techniky
