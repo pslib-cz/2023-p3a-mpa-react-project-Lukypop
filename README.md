@@ -1,5 +1,6 @@
 # Tatranské závody ovcí
-<img src=./src/img/Header.jpeg/>
+<img src=../vite-project/src/img/Header.jpeg/>
+
 ## Téma
 - Tato hra je upravenou verzí slavné hry "Monopoly" předělaná do slovenského prostředí
 - 2 herní módy – "Na Monopoly" / "Na Bankrot"
