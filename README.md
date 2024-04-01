@@ -1,5 +1,5 @@
 # Tatranské závody ovcí
-<img src=./vite-project/src/img/Header.jpeg width=400px style={{align-self: "center"}}/>
+<img src=./vite-project/src/img/Header.jpeg width=400px />
 
 ## Téma
 - Tato hra je upravenou verzí slavné hry "Monopoly" předělaná do slovenského prostředí
