@@ -1,9 +1,12 @@
-# Battleships
+# Dostihy a stávky ("slovenská" modifikace dostihy a sázky)
 
 ## Téma
 
-- bitevní lodě hráč proti počítači, kdo sestřelí protivnikovi všechny lodě vyhrává
-- použití DnD na layout lodí
+- předělávka hry dostihy a sázky
+- hráč proti AI
+- místo koní ovce
+
+- použití DnD na hod kostky? 
 
 ## Odkazy pro vývoj
 
@@ -11,19 +14,13 @@ Zde budou živé linky na:
 - figma návrh stránek aplikace
 - odkaz na gh-pages projektu
 
-### Z čeho čerpat
-
-- interaktivní hra (předělávka "deskovky")
-- mohlo by být použitelné jako solitaire
-- nebo "AI" protihráč
-
 ### Techniky
 
 - využití localStorage / sessionStorage
 - čtení dat z externího RestAPI (fetch)
 - operace DnD
 - využití react-routeru
-- funkčnost na mobilu (výjimka je předělávka komplexních deskových her)
+- funkčnost na mobilu (výjimka je předělávka komplexních deskových her) -> Nebude
 
 ### Co není obsahem 
 
