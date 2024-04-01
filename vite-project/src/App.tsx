@@ -1,7 +1,7 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import Gameboard from './components/Gameboard.tsx'
-import Index from './components/Index.tsx'
-import Rules from './components/Rules.tsx'
+import Gameboard from './components/Game/Gameboard.tsx'
+import Index from './components/Index/Index.tsx'
+import Rules from './components/Rules/Rules.tsx'
 function App() {
 
   const router = createBrowserRouter(
