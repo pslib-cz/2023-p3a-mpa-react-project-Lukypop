@@ -9,38 +9,45 @@ type FieldProps = {
         case "SHEEP":
           return (
             <div>
-              <h2>{field.name}</h2>
-              <p>Price: {field.price}</p>
-              <p>Rent: {field.rent}</p>
-              <p>Racing Level: {field.racingLevel}</p>
-              <p>Color: {field.color}</p>
+              <p>{field.FieldId}</p>
             </div>
           );
         case "TAX":
           return (
             <div>
-              <h2>{field.name}</h2>
-              <p>Price: {field.price}</p>
+              <p>{field.FieldId}</p>
             </div>
           );
         case "PIMP":
           return (
             <div>
-              <h2>{field.name}</h2>
-              <p>Price: {field.price}</p>
-              <p>Rent: {field.rent}</p>
+              <p>{field.FieldId}</p>
             </div>
           );
-        // Add cases for other field types as needed
         case "CHANCE":
           return (
             <div>
-              <h2>{field.name}</h2>
+              <p>{field.FieldId}</p>
             </div>
           );
         case "START":
+            return (
+                <div>
+                <h2>{field.name}</h2>
+                </div>
+            );
         case "TATRY":
+            return (
+                <div>
+                <h2>{field.name}</h2>
+                </div>
+            );
         case "TAVERN":
+            return (
+                <div>
+                <h2>{field.name}</h2>
+                </div>
+            );
         case "FREE_PARKING":
           return (
             <div>
@@ -48,7 +55,7 @@ type FieldProps = {
             </div>
           );
         default:
-          return null; // If field type is not recognized, render nothing
+          return null; // This should never happen
       }
 }
 export default Field
