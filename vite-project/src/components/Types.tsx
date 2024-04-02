@@ -57,6 +57,15 @@ export type FREE_PARKING = {
 
     name: string;
 };
+export type GameState = {
+    fields: FieldType[];
+    players: Player[];
+}
+export type Player = {
+    name: string;
+    money: number;
+    position: number;
+}
 
 
 
