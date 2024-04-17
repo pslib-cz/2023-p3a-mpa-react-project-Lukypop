@@ -60,8 +60,11 @@ export type FREE_PARKING = {
 export type GameState = {
     fields: FieldType[];
     players: Player[];
+    startMoney: number;
+    moneyPerRound: number;
 }
 export type Player = {
+    playerId: number;
     name: string;
     money: number;
     position: number;

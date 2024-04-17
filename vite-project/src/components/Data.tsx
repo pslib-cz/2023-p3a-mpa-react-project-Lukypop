@@ -1,6 +1,6 @@
 import { FieldType } from "./Types.tsx"
 
- export const fields: FieldType[] = [
+export const fields: FieldType[] = [
   
 {
   FieldId: 20,
