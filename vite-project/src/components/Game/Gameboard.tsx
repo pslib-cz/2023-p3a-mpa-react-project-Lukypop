@@ -1,4 +1,3 @@
-import Player from "./Player.tsx"
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom"
 import { GameContext, GameContextProps } from "./GameContext.tsx"
@@ -23,7 +22,7 @@ const Gameboard = () => {
         
 
     }, [context.state.players[0].position])
-*/
+
 
 /*
     useEffect(() => {        
@@ -32,6 +31,7 @@ const Gameboard = () => {
         }
     }, [diceRoll])
    */ 
+  
     return (
         <>
             <div className={styles["gameboard"]}>
@@ -51,6 +51,15 @@ const Gameboard = () => {
                     }
                 )}  
             </div>
+            {context.state.players.map((player) => {
+                return (
+                    <div>
+                        <p>{player.name}</p>
+                        <p>{player.money}</p>
+                    </div>
+                )
+            }
+            )}
         </>
     )
 }
