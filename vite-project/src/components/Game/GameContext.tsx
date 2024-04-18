@@ -1,8 +1,6 @@
-import { Action } from '@remix-run/router';
-import { GameState } from '../Types';
+import { GameState, PlayerColor } from '../Types';
 import React, { createContext, useReducer, PropsWithChildren } from 'react';
 import fields from '../Data';
-import { act } from 'react-dom/test-utils';
 //work in progress
 
 export interface GameContextProps {
@@ -10,48 +8,45 @@ export interface GameContextProps {
     dispatch: React.Dispatch<ReducerAction>;
   }
 const defaultGameState : GameState = {
+    gameRunning: false,
     startMoney: 1000,
     moneyPerRound: 100,
     fields: fields,
-    players:[{playerId: 0, name: "Player", money: 1000, position: 0}]
+    players:[{playerId: 0, name: "Player 0", money: 1000, position: 0, color: PlayerColor.GREEN}]
 }
 
-type ReducerAction = | { type: "MOVE"; position: number;} |
-                       { type: "ADD_PLAYER" ; name: string; id: number}|
-                       { type: "EDIT_PLAYER"; name: string; id: number}|
-                       { type: "REMOVE_PLAYER"; id: number}|
-                       { type: "CHANGE_START_MONEY"; startMoney: number;}|
-                       { type: "CHANGE_MONEY_PER_ROUND"; moneyPerRound: number;}|
+
+type ReducerAction = |  { type: "START_GAME";}|
+                        { type: "END_GAME";}| 
+
+                        { type: "ADD_PLAYER" ; name: string; id: number}|
+                        { type: "EDIT_PLAYER"; name: string; id: number}|
+                        { type: "REMOVE_PLAYER"; id: number}|
+
+                        { type: "CHANGE_START_MONEY"; startMoney: number;}|
+                        { type: "CHANGE_MONEY_PER_ROUND"; moneyPerRound: number;}|
+
+                        { type: "MOVE"; howMuch: number;} |
+                     //   { type: "ADD_MONEY"; playerId: number; amount: number;}|
                      //   { type: "BUY"; fieldId: number;}|
-                      //  { type: "PAY_RENT"; fieldId: number;}|
-                      // { type: "PAY_TAX"; }|
+                     //   { type: "PAY_RENT"; fieldId: number;}|
+                     //   { type: "PAY_TAX"; }|
                      //   { type: "TAVERN"; fieldId: number;}|
                      //   { type: "CHANCE"; fieldId: number;}|
                      //   { type: "PIMP"; fieldId: number;}|
-                       { type: "START"; playerId: number;}
-                    //   { type: "TATRY";}
+                     //   { type: "TATRY";}
+
+                     //  { type: "START"; playerId: number;} |
+                       { type: "LOAD"; newState: GameState;}
 
 const gameReducer = (state: GameState , action: ReducerAction): GameState  => {
     switch (action.type) {
-        case "MOVE":
-           return {
-               //player moves to the new position from input value
-                ...state,
-                players: state.players.map((player) => {
-                    return {
-                        ...player,
-                        position: action.position
-                    }
-                })
-           }
         case "ADD_PLAYER":
             return {
                 ...state,
-                players: [...state.players, {playerId: action.id, name: action.name, money: state.startMoney, position: 0}]
-            
+                players: [...state.players, {playerId: action.id, name: action.name, money: state.startMoney, position: 0, color: PlayerColor.RED}]
             } 
         case "EDIT_PLAYER":
-        
             return {
                 ...state,
                 players: state.players.map((player) => {
@@ -77,29 +72,57 @@ const gameReducer = (state: GameState , action: ReducerAction): GameState  => {
                         ...player,
                         money: action.startMoney
                     }
+                }),
+                startMoney: action.startMoney
+            }
+        case "CHANGE_MONEY_PER_ROUND":
+            return {
+                ...state,
+                moneyPerRound: action.moneyPerRound 
+        }
+        
+        case "LOAD":
+            return action.newState;
+
+        case "START_GAME":
+            return {
+                ...state,
+                gameRunning: true
+            }
+        case "END_GAME":
+            return defaultGameState;
+        
+        case "MOVE":
+
+           return {
+                ...state,
+                players: state.players.map((player) => {
+                    return {
+                        ...player,
+                        position: player.position + action.howMuch
+                    }
                 })
             }
-        case "START":
+        }
+    }
+
+           
+       /* case "START":
             return {
                 ...state,
                 players: state.players.map((player) => {
                     if(player.playerId === action.playerId) {
                         return {
                             ...player,
-                            money: +state.moneyPerRound + player.money,
+                            money: state.moneyPerRound + player.money,
                             position: 0
                         }
                     }
                     return player;
                 })
-            }
-        case "CHANGE_MONEY_PER_ROUND":
-            return {
-                ...state,
-                moneyPerRound: action.moneyPerRound 
-            }
-        }
-    }
+            }*/
+        
+    
         
 
 export const GameContext = createContext<{ state: GameState; dispatch: React.Dispatch<ReducerAction> }>({ state: defaultGameState, dispatch: () => {}});

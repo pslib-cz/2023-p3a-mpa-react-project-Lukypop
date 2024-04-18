@@ -1,0 +1,21 @@
+.field {
+    display: grid;
+    grid-template-areas: "red green"
+                         "blue yellow";
+}
+.player--red {
+    grid-area: red;
+    background-color: red;
+}
+.player--green {
+    grid-area: green;
+    background-color: green;
+}
+.player--blue {
+    grid-area: blue;
+    background-color: blue;
+}
+.player--yellow {
+    grid-area: yellow;
+    background-color: yellow;
+}

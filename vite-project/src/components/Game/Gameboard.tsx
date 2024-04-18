@@ -1,37 +1,20 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom"
 import { GameContext, GameContextProps } from "./GameContext.tsx"
 import Field from "./Field.tsx"
 import styles from './GameBoard.module.css';
-import fields from "../Data.tsx"
+
 const Gameboard = () => {
+
     const context = useContext<GameContextProps>(GameContext);
     
     const [diceRoll, setDiceRoll] = useState(0)
     
     const handleDiceRoll = () => {
-        setDiceRoll((Math.floor(Math.random() * 6) + 1)+ (Math.floor(Math.random() * 6) + 1));
-
+        setDiceRoll((Math.floor(Math.random() * 6) + 1)+ (Math.floor(Math.random() * 6) + 1))
+        context.dispatch({type: "MOVE", howMuch: diceRoll})
     }
 
-/*    useEffect(() => {
-
-        if(context.state.players[0].position > 39) {
-            context.dispatch({type: "MOVE", position: context.state.players[0].position - 40})
-        }
-        
-
-    }, [context.state.players[0].position])
-
-
-/*
-    useEffect(() => {        
-        if(diceRoll > 0) {
-            context.dispatch({type: "MOVE", position: context.state.players[0].position + diceRoll})
-        }
-    }, [diceRoll])
-   */ 
-  
     return (
         <>
             <div className={styles["gameboard"]}>
@@ -42,25 +25,38 @@ const Gameboard = () => {
                         </div>
                     </div>
                 {context.state.fields.map((field, index) => {  
-                    if (field.type === "START" || field.type === "TAVERN" || field.type === "FREE_PARKING" || field.type === "TATRY" ) {
-                        return(<div className={styles["gameboard--2by2"]}><Field key={index} field={field} /></div>)} 
-                    else if(index > 0 && index < 10 || index > 29) {
-                        return(<div className={styles["gameboard--1by2"]}><Field key={index} field={field} /></div>)}
-                    else if(index%2 === 0 && index > 10 && index < 30 || index%2 === 1 && index > 10 && index < 30) {
-                        return(<div className={styles["gameboard--2by1"]}><Field key={index} field={field} /></div>)}
-                    }
-                )}  
+                    
+                        const gridSomething = `${field.y} / ${field.x}`;
+                        return(<div id='kokot' style={{gridArea: gridSomething}} ><Field key={index} field={field} currentColors={context.state.players.filter(a => a.position === field.FieldId).map(b => b.color)}/></div>)
+                    })}
+                    
+                
+                
+                
             </div>
+            
             {context.state.players.map((player) => {
                 return (
                     <div>
                         <p>{player.name}</p>
                         <p>{player.money}</p>
                     </div>
-                )
-            }
-            )}
+                )})}
+
+                    <div><Link to="/">Zpět</Link></div>
+                    <div><Link to="/Rules">Pravidla</Link></div>
+                    <div><Link to="/Settings">Zpět do hry</Link></div>
+                
+            
         </>
     )
 }
 export default Gameboard
+
+/*
+                    else if(index > 0 && index < 10 || index > 29) {
+                         return(<div className={styles["gameboard--1by2"]}><Field key={index} field={field} currentColors={context.state.players.filter(a => a.position === field.FieldId).map(b => b.color)}/></div>)
+                    }      
+                    else if(index%2 === 0 && index > 10 && index < 30 || index%2 === 1 && index > 10 && index < 30) {
+                        return(<div className={styles["gameboard--2by1"]}><Field key={index} field={field} currentColors={context.state.players.filter(a => a.position === field.FieldId).map(b => b.color)}/></div>)
+                    }*/

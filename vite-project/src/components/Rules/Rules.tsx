@@ -4,7 +4,6 @@ const Rules = () => {
         <>
         <h1>Rules</h1>
             <p>Tady jsou velmi důležitá pravidla a jsem fakt línej to teď psát</p>
-            <div><Link to="/game">Hrát</Link></div>
             <div><Link to="/">Zpět</Link></div>
         </>
     )

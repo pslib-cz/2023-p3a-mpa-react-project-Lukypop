@@ -1,11 +1,29 @@
-import { FieldType } from "../Types";
-
+import { FieldType, PlayerColor } from "../Types";
+import styles from './Field.module.css';
 type FieldProps = {
     field: FieldType;
+    currentColors: PlayerColor[];
 };
 
- const Field: React.FC<FieldProps> = ({field}) => {
-    switch (field.type) {
+
+ const Field: React.FC<FieldProps> = ({field, currentColors}) => {
+    return (
+        <div className={styles["field"]}>
+            <h2>{field.FieldId}</h2>
+            {currentColors.map((color) => 
+            {
+                return <div className={styles[`player--${color}`]} style={{backgroundColor: color}}></div>              
+            })}
+        </div>
+    )
+   
+}
+export default Field
+
+
+/*
+switch (field.type) {
+      </div>
         case "SHEEP":
           return (
             <div>
@@ -56,6 +74,4 @@ type FieldProps = {
           );
         default:
           return null; // This should never happen
-      }
-}
-export default Field
+      */

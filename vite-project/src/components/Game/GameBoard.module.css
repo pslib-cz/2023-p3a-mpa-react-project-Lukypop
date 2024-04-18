@@ -2,17 +2,11 @@
     width: 975px;
     height: 975px;
     display: grid;
-     grid-template-columns: repeat(13, 1fr);
-     grid-template-rows: repeat(13, 1fr);
-     
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);   
 }
 
-.gameboard--middle{
-    grid-column: 3 / span 9;
-    grid-row:3 / span 9;
-    background-color: #f0f0f0;
-    position: relative;
-}
+
 .gameboard--middle--button{
     width: 150px;
     background-color: red;
