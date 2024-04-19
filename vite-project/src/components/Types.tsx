@@ -7,7 +7,7 @@ export interface IFieldType {
 export interface SHEEP extends IFieldType {
     type: "SHEEP",
     ownership: number | null;
-
+    multiplayer: number;
 
     name: string,
     waitTime: number;
@@ -26,6 +26,8 @@ export interface TAX extends IFieldType {
 
 export interface PIMP extends IFieldType { //je to jako nádraží ale pasák
     FieldId: number;
+    multiplayer: number;
+
     type: "PIMP";
     ownership: number | null;
 
@@ -73,6 +75,8 @@ export type GameState = {
     startMoney: number;
     moneyPerRound: number;
     currentPlayer: number;
+    playerDone: boolean;
+    playerRolled: boolean;
 };   
 export type Player = {
     playerId: number;

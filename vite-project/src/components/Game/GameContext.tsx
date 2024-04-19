@@ -1,7 +1,6 @@
 import { GameState, PlayerColor } from '../Types';
 import React, { createContext, useReducer, PropsWithChildren } from 'react';
 import fields from '../Data';
-//work in progress
 
 export interface GameContextProps {
     state: GameState;
@@ -13,6 +12,8 @@ const defaultGameState : GameState = {
     startMoney: 1000,
     moneyPerRound: 100,
     fields: fields,
+    playerDone: false,
+    playerRolled: false,
     players:[{playerId: 0, name: "Player 0", money: 1000, position: 0, color: PlayerColor.RED}]
 }
 
@@ -27,19 +28,14 @@ type ReducerAction = |  { type: "START_GAME";}|
                         { type: "CHANGE_START_MONEY"; startMoney: number;}|
                         { type: "CHANGE_MONEY_PER_ROUND"; moneyPerRound: number;}|
 
-                        { type: "MOVE"; playerId: number; howMuch: number;} |
                         { type: "NEXT_PLAYER";}|
-                     //   { type: "ADD_MONEY"; playerId: number; amount: number;}|
-                     //   { type: "BUY"; fieldId: number;}|
-                     //   { type: "PAY_RENT"; fieldId: number;}|
-                     //   { type: "PAY_TAX"; }|
-                     //   { type: "TAVERN"; fieldId: number;}|
-                     //   { type: "CHANCE"; fieldId: number;}|
-                     //   { type: "PIMP"; fieldId: number;}|
-                     //   { type: "TATRY";}
+                        { type: "ROLL_DICE";}|
 
-                     //  { type: "START"; playerId: number;} |
-                       { type: "LOAD"; newState: GameState;}
+                        { type: "BUY_FIELD"; playerId: number; fieldId: number;}|
+                        { type: "UPGRADE_FIELD"; playerId: number; fieldId: number;}|
+                        { type: "PAY_RENT"; playerId: number; fieldId: number;}|
+
+                        { type: "LOAD"; newState: GameState;}
 
 const gameReducer = (state: GameState , action: ReducerAction): GameState  => {
     const colors = ['RED', 'GREEN', 'YELLOW', 'BLUE'] as PlayerColor[];
@@ -100,25 +96,114 @@ const gameReducer = (state: GameState , action: ReducerAction): GameState  => {
         case "END_GAME":
             return defaultGameState;
         
-        case "MOVE":
+        
+        case "NEXT_PLAYER":
             return {
                 ...state,
+                playerDone: false,
+                playerRolled: false,
+                currentPlayer: (state.currentPlayer + 1) % state.players.length
+            }
+        case "BUY_FIELD":
+            if (state.playerDone) {
+                return state;
+            }
+            const field = state.fields.find((field) => field.FieldId === action.fieldId)
+            const player = state.players.find((player) => player.playerId === action.playerId)   
+            if (field === undefined || player === undefined) {
+                return state;
+            } 
+            if (field.type !== "SHEEP" && field.type !== "PIMP") {
+                return state;
+            }
+
+          
+        return {
+                ...state, 
+                playerDone: true,
                 players: state.players.map((player) => {
                     if(player.playerId === action.playerId) {
                         return {
                             ...player,
-                            position: (player.position + action.howMuch) % 40,
-                            money: player.money +((player.position + action.howMuch >= 40) ? state.moneyPerRound : 0)
+
+                            money: player.money - field.price,
+
+                        }
+                    }
+                    return player;
+                }),
+                fields: state.fields.map((field) => {
+                    if(field.FieldId === action.fieldId) {
+                        
+                        return {
+                            ...field,
+                            ownership: player.playerId
+                        }
+                    }
+                    return field;
+                })
+            }
+        case "UPGRADE_FIELD":
+            if (state.playerDone) {
+                return state;
+            }
+            return state
+        case "PAY_RENT":
+            if (state.playerDone) {
+                return state;
+            }
+            const field1 = state.fields.find((field) => field.FieldId === action.fieldId)
+            const player1 = state.players.find((player) => player.playerId === action.playerId)
+            if (field1 === undefined || player1 === undefined) {
+                return state;
+            }
+            if (field1.type !== "SHEEP" && field1.type !== "PIMP") {
+                return state;
+            }
+            const owner = state.players.find((player) => player.playerId === field1?.ownership)
+            if (owner === undefined) {
+                return state;
+            }
+            return {
+                ...state,
+                playerDone: true,
+
+                players: state.players.map((player) => {
+                    if(player.playerId === action.playerId) {
+                        return {
+                            ...player,
+                            money: player.money - (field1.rent*field1.multiplayer)
+                        }
+                    }
+                    if(player.playerId === owner.playerId) {
+                        return {
+                            ...player,
+                            money: player.money + (field1.rent*field1.multiplayer)
                         }
                     }
                     return player;
                 })
             }
-        case "NEXT_PLAYER":
+            case "ROLL_DICE":
+                const diceRoll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
             return {
+
                 ...state,
-                currentPlayer: (state.currentPlayer + 1) % state.players.length
+                playerRolled: true,
+
+                players: state.players.map((player) => {
+                    if(player.playerId === state.currentPlayer) {
+                        return {
+                            ...player,
+                            position: (player.position + diceRoll) % 40,
+                            money: player.money +((player.position + diceRoll >= 40) ? state.moneyPerRound : 0)
+                        }
+                    }
+                    return player;
+                })
             }
+
+            
     }
 }
     

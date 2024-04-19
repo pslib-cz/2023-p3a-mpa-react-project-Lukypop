@@ -20,6 +20,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,     
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -43,6 +44,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -66,6 +68,7 @@ export const fields: FieldType[] = [
     type: "PIMP",
     name: "PASÁK",
     price: 250,
+    multiplayer: 1,
     rent: 50
   },
 
@@ -79,6 +82,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -94,6 +98,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -109,6 +114,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -124,6 +130,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -149,6 +156,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -164,6 +172,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -179,6 +188,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -195,6 +205,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -209,6 +220,7 @@ export const fields: FieldType[] = [
     type: "PIMP",
     name: "PASÁK",
     price: 250,
+    multiplayer: 1,
     rent: 50
   },
 
@@ -222,6 +234,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -237,6 +250,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -252,6 +266,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -267,6 +282,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -292,6 +308,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -307,6 +324,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -322,6 +340,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -337,6 +356,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -351,6 +371,7 @@ export const fields: FieldType[] = [
     type: "PIMP",
     name: "PASÁK",
     price: 250,
+    multiplayer: 1,
     rent: 50
   },
 
@@ -364,6 +385,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -379,6 +401,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -394,6 +417,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -409,6 +433,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -433,6 +458,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -448,6 +474,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -463,6 +490,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -478,6 +506,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -492,6 +521,7 @@ export const fields: FieldType[] = [
     type: "PIMP",
     name: "PASÁK",
     price: 250,
+    multiplayer: 1,
     rent: 50
   },
 
@@ -505,6 +535,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Brown"
@@ -520,6 +551,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Blue"
@@ -545,6 +577,7 @@ export const fields: FieldType[] = [
     name:"Ovce",
     waitTime: 0,
     price: 0,
+    multiplayer: 1,
     rent: 0,
     racingLevel: 0,
     color: "Blue"
