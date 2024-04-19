@@ -8,11 +8,12 @@ export interface GameContextProps {
     dispatch: React.Dispatch<ReducerAction>;
   }
 const defaultGameState : GameState = {
+    currentPlayer: 0, 
     gameRunning: false,
     startMoney: 1000,
     moneyPerRound: 100,
     fields: fields,
-    players:[{playerId: 0, name: "Player 0", money: 1000, position: 0, color: PlayerColor.GREEN}]
+    players:[{playerId: 0, name: "Player 0", money: 1000, position: 0, color: PlayerColor.RED}]
 }
 
 
@@ -26,7 +27,8 @@ type ReducerAction = |  { type: "START_GAME";}|
                         { type: "CHANGE_START_MONEY"; startMoney: number;}|
                         { type: "CHANGE_MONEY_PER_ROUND"; moneyPerRound: number;}|
 
-                        { type: "MOVE"; howMuch: number;} |
+                        { type: "MOVE"; playerId: number; howMuch: number;} |
+                        { type: "NEXT_PLAYER";}|
                      //   { type: "ADD_MONEY"; playerId: number; amount: number;}|
                      //   { type: "BUY"; fieldId: number;}|
                      //   { type: "PAY_RENT"; fieldId: number;}|
@@ -40,12 +42,18 @@ type ReducerAction = |  { type: "START_GAME";}|
                        { type: "LOAD"; newState: GameState;}
 
 const gameReducer = (state: GameState , action: ReducerAction): GameState  => {
+    const colors = ['RED', 'GREEN', 'YELLOW', 'BLUE'] as PlayerColor[];
+    
+
+
     switch (action.type) {
+
         case "ADD_PLAYER":
+            const color = colors[state.players.length];
             return {
-                ...state,
-                players: [...state.players, {playerId: action.id, name: action.name, money: state.startMoney, position: 0, color: PlayerColor.RED}]
-            } 
+                    ...state,
+                    players: [...state.players, {playerId: action.id, name: action.name, money: state.startMoney, position: 0 , color: color}]
+                } 
         case "EDIT_PLAYER":
             return {
                 ...state,
@@ -93,18 +101,27 @@ const gameReducer = (state: GameState , action: ReducerAction): GameState  => {
             return defaultGameState;
         
         case "MOVE":
-
-           return {
+            return {
                 ...state,
                 players: state.players.map((player) => {
-                    return {
-                        ...player,
-                        position: player.position + action.howMuch
+                    if(player.playerId === action.playerId) {
+                        return {
+                            ...player,
+                            position: (player.position + action.howMuch) % 40,
+                            money: player.money +((player.position + action.howMuch >= 40) ? state.moneyPerRound : 0)
+                        }
                     }
+                    return player;
                 })
             }
-        }
+        case "NEXT_PLAYER":
+            return {
+                ...state,
+                currentPlayer: (state.currentPlayer + 1) % state.players.length
+            }
     }
+}
+    
 
            
        /* case "START":

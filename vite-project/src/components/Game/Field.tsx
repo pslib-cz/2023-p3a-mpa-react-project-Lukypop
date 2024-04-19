@@ -9,11 +9,14 @@ type FieldProps = {
  const Field: React.FC<FieldProps> = ({field, currentColors}) => {
     return (
         <div className={styles["field"]}>
-            <h2>{field.FieldId}</h2>
+            <p className={styles["heading"]}>{field.FieldId}</p>
             {currentColors.map((color) => 
             {
                 return <div className={styles[`player--${color}`]} style={{backgroundColor: color}}></div>              
             })}
+            <div>
+              
+            </div>
         </div>
     )
    

@@ -10,9 +10,9 @@ export const GameRunning = () => {
                 <p>Hra je v průběhu</p>
                 <div>
                     <button onClick={() => context.dispatch({type: "END_GAME"})}>Ukončit hru</button>
-                    <div><Link to="/">Zpět</Link></div>
                     <div><Link to="/Rules">Pravidla</Link></div>
                     <div><Link to="/Game">Zpět do hry</Link></div>
+                    <div><Link to="/">Zpět</Link></div>
 
 
                 </div>

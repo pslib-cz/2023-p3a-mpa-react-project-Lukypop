@@ -1,44 +1,7 @@
 .gameboard {
-    width: 975px;
-    height: 975px;
+    width: 550px;
+    height: 550px;
     display: grid;
     grid-template-columns: repeat(11, 1fr);
     grid-template-rows: repeat(11, 1fr);   
-}
-
-
-.gameboard--middle--button{
-    width: 150px;
-    background-color: red;
-    height: 50px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.gameboard--middle--text{
-    
-    position: absolute;
-    text-align: center;
-}
-
-.gameboard--2by2{
-    grid-column: span 2;
-    grid-row: span 2;
-}
-.gameboard--1by2{
-    grid-column: span 1;
-    grid-row: span 2;
-}
-.gameboard--2by1{
-    grid-column: span 2;
-    grid-row: span 1;
-}
-.gameboard--player {
-    background-color: green;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    z-index: 5;
-    
 }

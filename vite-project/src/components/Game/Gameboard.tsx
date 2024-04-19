@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom"
 import { GameContext, GameContextProps } from "./GameContext.tsx"
 import Field from "./Field.tsx"
@@ -8,31 +8,25 @@ const Gameboard = () => {
 
     const context = useContext<GameContextProps>(GameContext);
     
-    const [diceRoll, setDiceRoll] = useState(0)
-    
     const handleDiceRoll = () => {
-        setDiceRoll((Math.floor(Math.random() * 6) + 1)+ (Math.floor(Math.random() * 6) + 1))
-        context.dispatch({type: "MOVE", howMuch: diceRoll})
+        const diceRoll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+        console.log("Rolling dice: " + diceRoll);
+        
+        context.dispatch({type: "MOVE", howMuch: diceRoll, playerId: context.state.currentPlayer});
+        context.dispatch({type: "NEXT_PLAYER"});
     }
 
     return (
         <>
             <div className={styles["gameboard"]}>
-                
-                <div className={styles["gameboard--middle"]}>
-                        <div>   <p style={{textAlign: "center", color: "black", fontSize: 32}}>{diceRoll}</p>
-                                <button className={styles["gameboard--middle--button"]} onClick={handleDiceRoll}>Roll dice</button>
-                        </div>
-                    </div>
-                {context.state.fields.map((field, index) => {  
+                        {context.state.fields.map((field, index) => {  
                     
                         const gridSomething = `${field.y} / ${field.x}`;
-                        return(<div id='kokot' style={{gridArea: gridSomething}} ><Field key={index} field={field} currentColors={context.state.players.filter(a => a.position === field.FieldId).map(b => b.color)}/></div>)
+                        return(<div id='policko' style={{gridArea: gridSomething}} ><Field key={index} field={field} currentColors={context.state.players.filter(a => a.position === field.FieldId).map(b => b.color)}/></div>)
                     })}
-                    
-                
-                
-                
+                    <div  style={{gridArea: '5/8/8/5' }} >
+                                <button style={{width: '100%', height: '100%'}} onClick={handleDiceRoll}>Roll dice</button>
+                    </div>
             </div>
             
             {context.state.players.map((player) => {
@@ -45,7 +39,7 @@ const Gameboard = () => {
 
                     <div><Link to="/">Zpět</Link></div>
                     <div><Link to="/Rules">Pravidla</Link></div>
-                    <div><Link to="/Settings">Zpět do hry</Link></div>
+                    <div><Link to="/Settings">Zpět do nastavení</Link></div>
                 
             
         </>

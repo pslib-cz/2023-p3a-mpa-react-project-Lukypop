@@ -1,6 +1,11 @@
 .field {
+    width: 50px;
+    height: 50px;
     display: grid;
-    grid-template-areas: "red green"
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:"heading heading" 
+                        "red green"
                          "blue yellow";
 }
 .player--red {
@@ -18,4 +23,9 @@
 .player--yellow {
     grid-area: yellow;
     background-color: yellow;
+}
+.heading {
+    grid-area: heading;
+    text-align: center;
+    margin: 0;
 }

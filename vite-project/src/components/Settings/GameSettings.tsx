@@ -1,8 +1,10 @@
 import { useContext } from 'react';
 import { GameContext, GameContextProps } from '../Game/GameContext';
+
 export const GameSettings = () => {
     const maxPlayers = 4;
     const { state, dispatch } = useContext<GameContextProps>(GameContext);
+
     const changeStartMoney = (newMoney: number) => {
         dispatch({ type: "CHANGE_START_MONEY", startMoney: newMoney });
     };
@@ -14,7 +16,7 @@ export const GameSettings = () => {
     const addPlayer = (playerName: string) => {
         if (state.players.length < maxPlayers) {
             const playerId = Math.max(...state.players.map(player => player.playerId)) + 1;
-            dispatch({ type: "ADD_PLAYER", name: playerName, id: playerId });
+            dispatch({ type: "ADD_PLAYER", name: playerName, id: playerId});
 
         } else {
             alert('Plný počet hráčů');
@@ -30,6 +32,7 @@ export const GameSettings = () => {
             alert('Alespoň jeden hráč musí zůstat');
         }
     };
+    
     return (
         <div>
             {state.players.map((player) => (
@@ -64,3 +67,11 @@ export const GameSettings = () => {
     );
 }
 export default GameSettings
+/*
+useEffect(() => {
+        const settingsData = localStorage.getItem("Settings");
+        if(settingsData !== null){
+            dispatch({type: "LOAD", newState: JSON.parse(settingsData)})
+        } 
+    }, []);
+    */

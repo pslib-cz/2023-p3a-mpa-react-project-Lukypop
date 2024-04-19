@@ -6,6 +6,8 @@ export interface IFieldType {
 }
 export interface SHEEP extends IFieldType {
     type: "SHEEP",
+    ownership: number | null;
+
 
     name: string,
     waitTime: number;
@@ -25,6 +27,8 @@ export interface TAX extends IFieldType {
 export interface PIMP extends IFieldType { //je to jako nádraží ale pasák
     FieldId: number;
     type: "PIMP";
+    ownership: number | null;
+
 
     name: string;
     price: number;
@@ -68,6 +72,7 @@ export type GameState = {
     players: Player[];
     startMoney: number;
     moneyPerRound: number;
+    currentPlayer: number;
 };   
 export type Player = {
     playerId: number;
@@ -82,9 +87,6 @@ export enum PlayerColor {
     RED = "RED",
     BLUE = "BLUE",
     YELLOW = "YELLOW"
-}
-
-
-
+};
 
 export type FieldType = SHEEP | TAX | PIMP | CHANCE | START | TATRY | TAVERN | FREE_PARKING ;
