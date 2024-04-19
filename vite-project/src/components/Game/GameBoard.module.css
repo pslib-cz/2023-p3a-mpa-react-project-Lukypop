@@ -5,3 +5,32 @@
     grid-template-columns: repeat(11, 1fr);
     grid-template-rows: repeat(11, 1fr);   
 }
+.page {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.playerprofileRED {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid red;
+}
+.playerprofileGREEN {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid green;
+}
+.playerprofileBLUE {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 1px solid blue;
+}
+.playerprofileYELLOW {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 1px solid yellow;
+}

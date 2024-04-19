@@ -88,7 +88,7 @@ export type Player = {
 
 export enum PlayerColor {
     GREEN = "GREEN",
-    RED = "RED",
+    RED = "RED", 
     BLUE = "BLUE",
     YELLOW = "YELLOW"
 };

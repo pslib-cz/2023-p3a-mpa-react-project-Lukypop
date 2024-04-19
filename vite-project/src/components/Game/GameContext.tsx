@@ -147,8 +147,37 @@ const gameReducer = (state: GameState , action: ReducerAction): GameState  => {
             if (state.playerDone) {
                 return state;
             }
-            return state
-        case "PAY_RENT":
+            const field2 = state.fields.find((field) => field.FieldId === action.fieldId)
+            const player2 = state.players.find((player) => player.playerId === action.playerId)
+            if (field2 === undefined || player2 === undefined) {
+                return state;
+            }
+            if (field2.type !== "SHEEP" && field2.type !== "PIMP") {
+                return state;
+            }
+            return {
+                ...state,
+                playerDone: true,
+                players: state.players.map((player) => {
+                    if(player.playerId === action.playerId) {
+                        return {
+                            ...player,
+                            money: player.money - field2.price
+                        }
+                    }
+                    return player;
+                }),
+                fields: state.fields.map((field) => {
+                    if(field.FieldId === action.fieldId) {
+                        return {
+                            ...field,
+                            multiplayer: field2.multiplayer + 1
+                        }
+                    }
+                    return field;
+                })
+            }
+            case "PAY_RENT":
             if (state.playerDone) {
                 return state;
             }

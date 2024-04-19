@@ -23,7 +23,7 @@ const Gameboard = () => {
         if (currentPlayerField && (currentPlayerField.type === "SHEEP" || currentPlayerField.type === "PIMP")){
             if(currentPlayerField.ownership === null){
                 if(currentPlayer.money >= currentPlayerField.price){
-                    buttonChoser = <div><button onClick={() => {
+                    buttonChoser = <div><button style={{width: '100%', height:'100%'}} onClick={() => {
                         context.dispatch({type: "BUY_FIELD", playerId: currentPlayer.playerId, fieldId: currentPlayerField.FieldId})
                     }}>Koupit pole</button></div>
                 
@@ -45,6 +45,7 @@ const Gameboard = () => {
 
     return (
         <>
+        <div className={styles["page"]}>
             <div className={styles["gameboard"]}>
                         {context.state.fields.map((field, index) => {  
                     
@@ -54,14 +55,15 @@ const Gameboard = () => {
                     <div  style={{gridArea: '5/8/8/5' }} >
                                 <button style={{width: '100%', height: '100%'}} onClick={handleDiceRoll}>{context.state.playerRolled ? "NEXT PLAYER": "ROLL_DICE"}</button> 
                     </div>
-                    <div  style={{gridArea: '5/9/8/6' }} >
+                    <div  style={{gridArea: '10/8/9/5'}} >
                         {buttonChoser}
                     </div>
             </div>
-            
+            </div>
             {context.state.players.map((player) => {
+                console.log(player.color)
                 return (
-                    <div>
+                    <div className={styles["playerprofile" + `${player.color}`]}>
                         <p>{player.name}</p>
                         <p>{player.money}</p>
                     </div>
