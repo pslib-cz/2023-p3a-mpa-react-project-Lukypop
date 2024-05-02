@@ -29,10 +29,14 @@ const Gameboard = () => {
                 
                 }
             }
-            else if (currentPlayerField.ownership === currentPlayer.playerId){
+
+            else if (currentPlayerField.ownership === currentPlayer.playerId && currentPlayerField.timesUpgraded < 6){
                 buttonChoser = <div><button onClick={() => {context.dispatch({type: "UPGRADE_FIELD", playerId: currentPlayer.playerId, fieldId: currentPlayerField.FieldId})
+                                                                            currentPlayerField.timesUpgraded += 1;
+                
             }}>Vylepšit pole</button></div>
             }
+
             else {
                 context.dispatch({type: "PAY_RENT", playerId: currentPlayer.playerId, fieldId: currentPlayerField.FieldId})}
 
@@ -53,11 +57,12 @@ const Gameboard = () => {
                         return(<div id='policko' style={{gridArea: gridSomething}} ><Field key={index} field={field} currentColors={context.state.players.filter(a => a.position === field.FieldId).map(b => b.color)}/></div>)
                     })}
                     <div  style={{gridArea: '5/8/8/5' }} >
-                                <button style={{width: '100%', height: '100%'}} onClick={handleDiceRoll}>{context.state.playerRolled ? "NEXT PLAYER": "ROLL_DICE"}</button> 
+                                <button style={{width: '100%', height: '100%'}} onClick={handleDiceRoll}>{context.state.playerRolled ? "NEXT PLAYER": "ROLL DICE"}</button> 
                     </div>
                     <div  style={{gridArea: '10/8/9/5'}} >
                         {buttonChoser}
                     </div>
+                    
             </div>
             </div>
             {context.state.players.map((player) => {
@@ -71,9 +76,7 @@ const Gameboard = () => {
 
                     <div><Link to="/">Zpět</Link></div>
                     <div><Link to="/Rules">Pravidla</Link></div>
-                    <div><Link to="/Settings">Zpět do nastavení</Link></div>
-                
-            
+                    <div><Link to="/Settings">Zpět do nastavení</Link></div>            
         </>
     )
 }

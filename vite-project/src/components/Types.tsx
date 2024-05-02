@@ -8,6 +8,7 @@ export interface SHEEP extends IFieldType {
     type: "SHEEP",
     ownership: number | null;
     multiplayer: number;
+    timesUpgraded: number;
 
     name: string,
     waitTime: number;
@@ -27,7 +28,7 @@ export interface TAX extends IFieldType {
 export interface PIMP extends IFieldType { //je to jako nádraží ale pasák
     FieldId: number;
     multiplayer: number;
-
+    timesUpgraded: number;
     type: "PIMP";
     ownership: number | null;
 

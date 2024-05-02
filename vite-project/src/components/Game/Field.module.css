@@ -1,7 +1,7 @@
 .field {
     border: 1px solid white;
-    width: 50px;
-    height: 50px;
+    width: 63px;
+    height: 63px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -12,6 +12,7 @@
 .player--red {
     grid-area: red;
     background-color: red;
+    
 }
 .player--green {
     grid-area: green;
@@ -29,4 +30,5 @@
     grid-area: heading;
     text-align: center;
     margin: 0;
+    font-size: 13px;
 }
