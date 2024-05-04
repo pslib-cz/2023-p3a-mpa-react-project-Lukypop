@@ -336,7 +336,7 @@ export const fields: FieldType[] = [
 
     timesUpgraded: 0,    
     type: "SHEEP",
-    name:"Ovce",
+    name:"HEDUŠKA",
     waitTime: 0,
     price: 300,
     multiplayer: 1,
@@ -354,7 +354,7 @@ export const fields: FieldType[] = [
 
     timesUpgraded: 0,    
     type: "SHEEP",
-    name:"Ovce",
+    name:"KANDELA",
     waitTime: 0,
     price: 300,
     multiplayer: 1,
@@ -386,7 +386,7 @@ export const fields: FieldType[] = [
 
     timesUpgraded: 0,    
     type: "SHEEP",
-    name:"Ovce",
+    name:"SHAUN",
     waitTime: 0,
     price: 300,
     multiplayer: 1,
@@ -404,7 +404,7 @@ export const fields: FieldType[] = [
 
     timesUpgraded: 0,    
     type: "SHEEP",
-    name:"Ovce",
+    name:"TIMMY ",
     waitTime: 0,
     price: 300,
     multiplayer: 1,
@@ -440,7 +440,7 @@ export const fields: FieldType[] = [
 
     timesUpgraded: 0,    
     type: "SHEEP",
-    name:"Ovce",
+    name:"SHIRLEY",
     waitTime: 0,
     price: 300,
     multiplayer: 1,
