@@ -19,7 +19,7 @@ type FieldProps = {
            <p className={styles["heading"]}>{field.name}</p>
             {currentColors.map((color) => 
             {
-                return <div className={styles[`player--${color}`]} style={{backgroundColor: color}}></div>              
+                return <div className={styles[`player--${color}`]} style={{backgroundColor: color,  width: 20, height: 20, borderRadius: 50 }}></div>              
             })}
         </div>
     )
@@ -30,7 +30,7 @@ type FieldProps = {
             <p className={styles["heading"]}>{field.name}</p>
             {currentColors.map((color) => 
             {
-                return <div className={styles[`player--${color}`]} style={{backgroundColor: color}}></div>              
+                return <div className={styles[`player--${color}`]} style={{backgroundColor: color, width: 20, height: 20, borderRadius: 50}}></div>              
             })}
 
             <div>

@@ -88,7 +88,7 @@ const Gameboard = () => {
                     <div  style={{gridArea: '9/7/8/5'}} >
                         {buttonChoser}
                     </div>
-                    <div style={{gridArea: '1/4/9/7'}}>{context.state.message}</div>
+                    <div className="" style={{gridArea: '4/3/5/9', textAlign: 'center'}}>{context.state.message}</div>
 
                     
             </div>

@@ -252,7 +252,6 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
       return {
         ...state,
         playerRolled: true,
-        message: `Hráč ${state.players.find(p => p.playerId === state.currentPlayer)?.name} hodil ${diceRoll}`,
         players: state.players.map((player) => {
           if (player.playerId === state.currentPlayer) {
             return {
