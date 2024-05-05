@@ -6,7 +6,7 @@ export const GameRunning = () => {
 
     return (
         <>
-            <div>
+            <div style={{textAlign: "center"}}>
                 <p>Hra je v průběhu</p>
                 <div>
                     <button onClick={() => context.dispatch({type: "END_GAME"})}>Ukončit hru</button>

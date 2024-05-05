@@ -9,7 +9,7 @@ const Settings = () => {
     
     
     return (
-        <div>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <h1>Nastavení</h1>
             {context.state.gameRunning ?  <GameRunning/> : <GameSettings/>}
             

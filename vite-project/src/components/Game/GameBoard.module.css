@@ -1,8 +1,11 @@
-
+@font-face {
+    font-family: font;
+    src: url(../../fonts/FuturaLTProMedium.otf);
+}
 .gameboard {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);   
+    grid-template-rows: repeat(10, 1fr);  
 }
 .page {
     font-family: font;
@@ -10,27 +13,23 @@
     display: flex;
     justify-content: center;
 }
-.playerprofileRED {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 1px solid red;
+.playerprofile {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    padding: .75em 1.5em;
+    margin: 1em;
+    border-radius: 1em;
+    border: 1px solid white;
 }
-.playerprofileGREEN {
+
+.hamburger {
     position: absolute;
     top: 0;
     right: 0;
-    border: 1px solid green;
+    margin: 10px;
 }
-.playerprofileBLUE {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border: 1px solid blue;
-}
-.playerprofileYELLOW {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border: 1px solid yellow;
+html {
+    margin: 0;
+    padding: 0;
 }

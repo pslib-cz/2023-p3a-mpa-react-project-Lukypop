@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom"
-
+import { useState } from "react";
 import { GameContext, GameContextProps } from "./GameContext.tsx"
 import Field from "./Field.tsx"
 import styles from './GameBoard.module.css';
 
 
 const Gameboard = () => {
-    
+
+    const [hamburger, setHamburger] = useState<boolean>(false)
     const context = useContext<GameContextProps>(GameContext);
     
     const handleDiceRoll = () => {
@@ -35,7 +36,13 @@ const Gameboard = () => {
                 context.dispatch({type: "TATRY", playerId: currentPlayer.playerId, fieldId: currentPlayerField.FieldId})
             }}>Zařídit ztrátu</button></div>
         }
-        
+        else if (currentPlayerField && (currentPlayerField.type === "CHANCE")){
+            if (currentPlayerField && (currentPlayerField.type === "CHANCE")){
+                buttonChoser = <div><button style={{width: '100%', height:'100%'}} onClick={() => {
+                    context.dispatch({type: "CHANCE", playerId: currentPlayer.playerId, fieldId: currentPlayerField.FieldId})
+                }}>Šance</button></div>
+            }
+        }
         else if (currentPlayerField && (currentPlayerField.type === "SHEEP")){
             if(currentPlayerField.ownership === null){
                 if(currentPlayer.money >= currentPlayerField.price){
@@ -49,6 +56,7 @@ const Gameboard = () => {
             else if (currentPlayerField.ownership === currentPlayer.playerId && currentPlayerField.timesUpgraded < 6){
                 buttonChoser = <div><button onClick={() => {context.dispatch({type: "UPGRADE_FIELD", playerId: currentPlayer.playerId, fieldId: currentPlayerField.FieldId})
                                                                             currentPlayerField.timesUpgraded += 1;
+
                 
             }}>Vylepšit pole</button></div>
             }
@@ -61,7 +69,7 @@ const Gameboard = () => {
 
         }
     }
-    if(context.state.players.find(a => a.money <= 0)){
+    if(context.state.players.find(a => a.money < 0)){
         context.state.players.filter(a => a.money <= 0).map(b => context.dispatch({type: "BANKROT", playerId: b.playerId}))
     }
     if(context.state.players.length === 1){
@@ -88,23 +96,34 @@ const Gameboard = () => {
                     <div  style={{gridArea: '9/7/8/5'}} >
                         {buttonChoser}
                     </div>
-                    <div className="" style={{gridArea: '4/3/5/9', textAlign: 'center'}}>{context.state.message}</div>
+                    <div className="" style={{gridArea: '4/2/5/10', textAlign: 'center', display: "flex", justifyContent: "center"}}><p style={{width: 400, margin: 0}}>{context.state.message}</p></div>
 
                     
-            </div>
-            </div>
+                    </div>
+            <div>
             {context.state.players.map((player) => {
                 console.log(player.color)
                 return (
-                    <div className={styles["playerprofile" + `${player.color}`]}>
-                        <p>{player.name}</p>
-                        <p>{player.money}</p>
+                    <div className={styles["playerprofile"]}>
+                        <div style={{backgroundColor: player.color, width: "50px", height: "50px", borderRadius: 50}}></div>
+                        <div>
+                            <p style={{margin: 0}}>{player.name}</p>
+                            <p style={{margin: 0}}>{player.money}</p>
+                        </div>
+                        
+                    
                     </div>
                 )})}
+        </div>
 
+                {hamburger ? <div className={styles["hamburger"]}>
+                    <div onClick={() => setHamburger(false)}>x</div>
                     <div><Link to="/">Zpět</Link></div>
                     <div><Link to="/Rules">Pravidla</Link></div>
-                    <div><Link to="/Settings">Zpět do nastavení</Link></div>            
+                    <div><Link to="/Settings">Zpět do nastavení</Link></div>
+                </div> : <div className={styles["hamburger"]} onClick={() => setHamburger(true)}>☰</div>}
+            </div>
+
         </>
     )
 }

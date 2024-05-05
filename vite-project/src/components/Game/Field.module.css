@@ -1,7 +1,7 @@
 .field {
     border: 1px solid white;
-    width: 70px;
-    height: 70px;
+    width: 69px;
+    height: 69px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -11,6 +11,30 @@
                          align-items: center;
                          justify-items: center;
 
+}
+.chanceField {
+    background-image: url(../../img/questionmark.png);
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tavernField {
+    background-image: url(../../img/pivson.png);
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tatryField {
+    background-image: url(../../img/Tatry.webp);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.taxField {
+    background-image: url(../../img/Tax.webp);
+    background-size: 52%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .player--red {
     grid-area: red;

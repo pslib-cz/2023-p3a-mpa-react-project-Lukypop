@@ -3,6 +3,7 @@ import styles from './Field.module.css';
 import { GameContext, GameContextProps } from "./GameContext";
 import { useContext } from "react";
 
+
 type FieldProps = {
     field: FieldType;
     currentColors: PlayerColor[];
@@ -24,7 +25,80 @@ type FieldProps = {
         </div>
     )
   }
+    if(field.type == "CHANCE"){
+        return (
+            <div className={`${styles["field"]} ${styles["chanceField"]}`}>
+                <p className={styles["heading"]}>{field.name}</p>
+                {currentColors.map((color) => 
+                {
+                    return <div className={styles[`player--${color}`]} style={{backgroundColor: color, width: 20, height: 20, borderRadius: 50}}></div>              
+                })}
 
+                <div>
+
+                </div>
+            </div>
+        )
+    }
+    if(field.type == "TAVERN"){
+        return (
+            <div className={`${styles["field"]} ${styles["tavernField"]}`}>
+                <p className={styles["heading"]}>{field.name}</p>
+                {currentColors.map((color) => 
+                {
+                    return <div className={styles[`player--${color}`]} style={{backgroundColor: color, width: 20, height: 20, borderRadius: 50}}></div>              
+                })}
+
+                <div>
+
+                </div>
+            </div>
+        )
+    }
+    if(field.type == "TATRY"){
+        return (
+            <div className={`${styles["field"]} ${styles["tatryField"]}`}>
+                <p className={styles["heading"]}>{field.name}</p>
+                {currentColors.map((color) => 
+                {
+                    return <div className={styles[`player--${color}`]} style={{backgroundColor: color, width: 20, height: 20, borderRadius: 50}}></div>              
+                })}
+
+                <div>
+
+                </div>
+            </div>
+        )
+    }
+    if(field.type == "TAX"){
+        return (
+            <div className={`${styles["field"]} ${styles["taxField"]}`}>
+                <p className={styles["heading"]}>{field.name}</p>
+                {currentColors.map((color) => 
+                {
+                    return (
+                        <div className={`${styles["field"]} ${styles["taxField"]}`}>
+                            <p className={styles["heading"]}>{field.name}</p>
+                            {currentColors.map((color) => 
+                            {
+                                return (
+                                    <div className={styles[`player--${color}`]} style={{backgroundColor: color, width: 20, height: 20, borderRadius: 50, boxShadow: "0 0 5px rgba(0, 0, 0, 0.3)"}}></div>              
+                                )
+                            })}
+
+                            <div>
+
+                            </div>
+                        </div>
+                    )
+                })}
+
+                <div>
+
+                </div>
+            </div>
+        )
+    }
     return (
         <div className={styles["field"]}>
             <p className={styles["heading"]}>{field.name}</p>

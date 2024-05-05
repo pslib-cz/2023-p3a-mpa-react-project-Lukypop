@@ -211,21 +211,11 @@ export const fields: FieldType[] = [
   },
    
   {
-    ownership: null,
-
+    type: "CHANCE",
     FieldId: 15,
     x: 1,
     y: 4,
-
-    timesUpgraded: 0,
-    type: "SHEEP",
-    name:"None",
-    waitTime: 0,
-    price: 200,
-    multiplayer: 1,
-    rent: 50,
-    racingLevel: 0,
-    color: "Brown"
+    name: "ŠANCE"
   },
 
   {
@@ -270,7 +260,7 @@ export const fields: FieldType[] = [
     x: 1,
     y: 1,
     type: "FREE_PARKING",
-    name: "FREE PARKING",
+    name: "PASEKA",
     
   },
 
@@ -373,21 +363,12 @@ export const fields: FieldType[] = [
   },
 
   {
-    ownership: null,
-
+    type: "TAX",
     FieldId: 25,
     x: 8,
     y: 1,
-
-    timesUpgraded: 0,    
-    type: "SHEEP",
-    name:"Ovce",
-    waitTime: 0,
-    price: 300,
-    multiplayer: 1,
-    rent: 100,
-    racingLevel: 0,
-    color: "Brown"
+    name: "DAŇ",
+    price: 200
   },
 
   {
@@ -414,7 +395,7 @@ export const fields: FieldType[] = [
     x: 10,
     y: 1,
     type: "TAVERN",
-    name:"TAVERN",
+    name:"KRČMA",
   },
 
   {    
@@ -454,21 +435,11 @@ export const fields: FieldType[] = [
   },
 
   {
-    ownership: null,
-
+    type: "CHANCE",
     FieldId: 30,
     x: 10,
     y: 4,
-
-    timesUpgraded: 0,    
-    type: "SHEEP",
-    name:"Ovce",
-    waitTime: 0,
-    price: 400,
-    multiplayer: 1,
-    rent: 200,
-    racingLevel: 0,
-    color: "Brown"
+    name: "ŠANCE"
   },
 
   {
@@ -490,21 +461,11 @@ export const fields: FieldType[] = [
   },
 
   {
-    ownership: null,
-
+    type: "CHANCE",
     FieldId: 32,
     x: 10,
     y: 6,
-
-  timesUpgraded: 0,    
-  type: "SHEEP",
-    name:"Ovce",
-    waitTime: 0,
-    price: 400,
-    multiplayer: 1,
-    rent: 200,
-    racingLevel: 0,
-    color: "Brown"
+    name: "ŠANCE"
   },
   
   {
