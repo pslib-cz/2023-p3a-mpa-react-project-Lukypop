@@ -25,19 +25,6 @@ export interface TAX extends IFieldType {
     price: number;
 };
 
-export interface PIMP extends IFieldType { //je to jako nádraží ale pasák
-    FieldId: number;
-    multiplayer: number;
-    timesUpgraded: number;
-    type: "PIMP";
-    ownership: number | null;
-
-
-    name: string;
-    price: number;
-    rent: number;
-};
-
 export interface CHANCE extends IFieldType {
     FieldId: number;
     type: "CHANCE";
@@ -78,6 +65,7 @@ export type GameState = {
     currentPlayer: number;
     playerDone: boolean;
     playerRolled: boolean;
+    message: string;
 };   
 export type Player = {
     playerId: number;
@@ -94,4 +82,4 @@ export enum PlayerColor {
     YELLOW = "YELLOW"
 };
 
-export type FieldType = SHEEP | TAX | PIMP | CHANCE | START | TATRY | TAVERN | FREE_PARKING ;
+export type FieldType = SHEEP | TAX  | CHANCE | START | TATRY | TAVERN | FREE_PARKING ;

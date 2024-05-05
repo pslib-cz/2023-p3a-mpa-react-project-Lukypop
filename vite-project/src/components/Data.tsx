@@ -6,16 +6,16 @@ export const fields: FieldType[] = [
     FieldId: 0,
 
     type: "START",
-    x:11,
-    y:11,
+    x:10,
+    y:10,
     name: "START",
   },
   
   {
     ownership: null,
     FieldId: 1,
-    x: 10,
-    y: 11,
+    x: 9,
+    y: 10,
     timesUpgraded: 0,
     type: "SHEEP",
     name:"CHCÍPAK",
@@ -29,18 +29,18 @@ export const fields: FieldType[] = [
   
   {
     FieldId: 2,
-    x: 9,
-    y: 11,
+    x: 8,
+    y: 10,
     type: "CHANCE",
-    name: "CHANCE",
+    name: "ŠANCE",
   },
 
   {
     ownership: null,
 
     FieldId: 3,
-    x: 8,
-    y: 11,
+    x: 7,
+    y: 10,
     timesUpgraded: 0,
     type: "SHEEP",
     name:"KRIPLÍK",
@@ -54,32 +54,19 @@ export const fields: FieldType[] = [
 
   {
     FieldId: 4,
-    x: 7,
-    y: 11,
+    x: 6,
+    y: 10,
     type: "TAX",
-    name: "TAX",
+    name: "DAŇ",
     price: 200
   },
 
   {
     ownership: null,
-    timesUpgraded: 0,
+
     FieldId: 5,
-    x: 6,
-    y: 11,
-    type: "PIMP",
-    name: "PASÁK",
-    price: 250,
-    multiplayer: 1,
-    rent: 50
-  },
-
-  {
-    ownership: null,
-
-    FieldId: 6,
     x: 5,
-    y: 11,
+    y: 10,
     timesUpgraded: 0,
     type: "SHEEP",
     name:"FERNETKA",
@@ -93,18 +80,18 @@ export const fields: FieldType[] = [
 
   {
     type : "CHANCE",
-    FieldId: 7,
+    FieldId: 6,
     x: 4,  
-    y: 11,
+    y: 10,
     name: "ŠANCE"
   },
 
   {
     ownership: null,
 
-    FieldId: 8,
+    FieldId: 7,
     x: 3,
-    y: 11,
+    y: 10,
     timesUpgraded: 0,
     type: "SHEEP",
     name:"SLÍVKA",
@@ -119,9 +106,9 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 9,
+    FieldId: 8,
     x: 2,
-    y: 11,
+    y: 10,
     timesUpgraded: 0,
     type: "SHEEP",
     name:"RUMĚNKA",
@@ -135,9 +122,9 @@ export const fields: FieldType[] = [
 
 
   {
-    FieldId: 10,
+    FieldId: 9,
     x: 1,
-    y: 11,
+    y: 10,
     type: "TATRY",
     name:"TATRY",
     
@@ -146,9 +133,9 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 11,
+    FieldId: 10,
     x: 1,
-    y: 10,
+    y: 9,
     timesUpgraded: 0,
     type: "SHEEP",
     name:"ŠTEFAN",
@@ -161,19 +148,19 @@ export const fields: FieldType[] = [
   },
 
   {
-    FieldId: 12,
+    FieldId: 11,
     x: 1,
     type : "CHANCE",
-    y: 9,
+    y: 8,
     name: "ŠANCE"
   },
 
   {
     ownership: null,
 
-    FieldId: 13,
+    FieldId: 12,
     x: 1,
-    y: 8,
+    y: 7,
 
     timesUpgraded: 0,    
     type: "SHEEP",
@@ -190,9 +177,9 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 14,
+    FieldId: 13,
     x: 1,
-    y: 7,
+    y: 6,
 
     timesUpgraded: 0,    
     type: "SHEEP",
@@ -205,24 +192,10 @@ export const fields: FieldType[] = [
     color: "Brown"
   },
   
-  {
-    ownership: null,
-    timesUpgraded: 0,
-
-    FieldId: 15,
-    x: 1,
-    y: 6,
-    type: "PIMP",
-    name: "PASÁK",
-    price: 250,
-    multiplayer: 1,
-    rent: 50
-  },
-
   {    
     ownership: null,
 
-    FieldId: 16,
+    FieldId: 14,
     x: 1,
     y: 5,
 
@@ -240,7 +213,7 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 17,
+    FieldId: 15,
     x: 1,
     y: 4,
 
@@ -258,7 +231,7 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 18,
+    FieldId: 16,
     x: 1,
     y: 3,
 
@@ -276,7 +249,7 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 19,
+    FieldId: 17,
     x: 1,
     y: 2,
 
@@ -293,7 +266,7 @@ export const fields: FieldType[] = [
 
   {
 
-    FieldId: 20,
+    FieldId: 18,
     x: 1,
     y: 1,
     type: "FREE_PARKING",
@@ -304,7 +277,7 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 21,
+    FieldId: 19,
     x: 2,
     y: 1,
 
@@ -321,7 +294,7 @@ export const fields: FieldType[] = [
 
   {
     type: "CHANCE",
-    FieldId: 22,
+    FieldId: 20,
     x: 3,
     y: 1,
     name: "ŠANCE"
@@ -330,7 +303,7 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 23,
+    FieldId: 21,
     x: 4,
     y: 1,
 
@@ -348,7 +321,7 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 24,
+    FieldId: 22,
     x: 5,
     y: 1,
 
@@ -365,23 +338,9 @@ export const fields: FieldType[] = [
 
   {
     ownership: null,
-    timesUpgraded: 0,
 
-    FieldId: 25,
+    FieldId: 23,
     x: 6,
-    y: 1,
-    type: "PIMP",
-    name: "PASÁK",
-    price: 250,
-    multiplayer: 1,
-    rent: 50
-  },
-
-  {
-    ownership: null,
-
-    FieldId: 26,
-    x: 7,
     y: 1,
 
     timesUpgraded: 0,    
@@ -398,8 +357,8 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 27,
-    x: 8,
+    FieldId: 24,
+    x: 7,
     y: 1,
 
     timesUpgraded: 0,    
@@ -416,8 +375,8 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 28,
-    x: 9,
+    FieldId: 25,
+    x: 8,
     y: 1,
 
     timesUpgraded: 0,    
@@ -434,8 +393,8 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 29,
-    x: 10,
+    FieldId: 26,
+    x: 9,
     y: 1,
 
     timesUpgraded: 0,    
@@ -451,8 +410,8 @@ export const fields: FieldType[] = [
 
   {
 
-    FieldId: 30,
-    x: 11,
+    FieldId: 27,
+    x: 10,
     y: 1,
     type: "TAVERN",
     name:"TAVERN",
@@ -461,8 +420,8 @@ export const fields: FieldType[] = [
   {    
     ownership: null,
 
-    FieldId: 31,
-    x: 11,
+    FieldId: 28,
+    x: 10,
     y: 2,
 
     timesUpgraded: 0,    
@@ -479,8 +438,8 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 32,
-    x: 11,
+    FieldId: 29,
+    x: 10,
     y: 3,
 
     timesUpgraded: 0,    
@@ -497,8 +456,8 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 33,
-    x: 11,
+    FieldId: 30,
+    x: 10,
     y: 4,
 
     timesUpgraded: 0,    
@@ -515,8 +474,8 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 34,
-    x: 11,
+    FieldId: 31,
+    x: 10,
     y: 5,
 
     timesUpgraded: 0,    
@@ -532,24 +491,10 @@ export const fields: FieldType[] = [
 
   {
     ownership: null,
-    timesUpgraded: 0,
 
-    FieldId: 35,
-    x: 11,
+    FieldId: 32,
+    x: 10,
     y: 6,
-    type: "PIMP",
-    name: "PASÁK",
-    price: 250,
-    multiplayer: 1,
-    rent: 50
-  },
-
-  {
-    ownership: null,
-
-    FieldId: 36,
-    x: 11,
-    y: 7,
 
   timesUpgraded: 0,    
   type: "SHEEP",
@@ -565,9 +510,9 @@ export const fields: FieldType[] = [
   {
     ownership: null,
 
-    FieldId: 37,
-    x: 11,
-    y: 8,
+    FieldId: 33,
+    x: 10,
+    y: 7,
 
     timesUpgraded: 0,    
     type: "SHEEP",
@@ -582,20 +527,20 @@ export const fields: FieldType[] = [
     
   {
 
-    FieldId: 38,
-    x: 11,
-    y: 9,
+    FieldId: 34,
+    x: 10,
+    y: 8,
     type: "TAX",
-    name: "TAX",
+    name: "DAŇ",
     price: 200
   },
 
   {
     ownership: null,
 
-    FieldId: 39,
-    x: 11,
-    y: 10,
+    FieldId: 35,
+    x: 10,
+    y: 9,
     timesUpgraded: 0,
     type: "SHEEP",
     name:"BERAN",
