@@ -190,7 +190,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
       if (
         field2 === undefined ||
         player2 === undefined ||
-        player2.money < field2.price
+        player2.money < (field2.price / 2)
       ) {
         return state;
       }
@@ -203,7 +203,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
           if (player.playerId === action.playerId) {
             return {
               ...player,
-              money: player.money - field2.price,
+              money: player.money - (field2.price / 2),
             };
           }
           return player;

@@ -185,9 +185,7 @@ const Gameboard = () => {
               </tbody>
             </table>
           </div>
-          <p style={{ textAlign: "center", marginTop: 0 }}>
-            Cena nájmu se znásobuje podle počtu vylepšení!{" "}
-          </p>
+          <p>Cena za vylepšení je vždy polovina ceny za každou úroveň</p>
         </div>
         <div className={styles["gameboard"]}>
           {context.state.fields.map((field, index) => {
