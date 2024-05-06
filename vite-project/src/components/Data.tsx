@@ -168,7 +168,7 @@ export const fields: FieldType[] = [
     waitTime: 0,
     price: 200,
     multiplayer: 1,
-    rent: 0,
+    rent: 50,
     racingLevel: 0,
     color: "Brown"
   },
@@ -187,7 +187,7 @@ export const fields: FieldType[] = [
     waitTime: 0,
     price: 200,
     multiplayer: 1,
-    rent: 0,
+    rent: 50,
     racingLevel: 0,
     color: "Brown"
   },

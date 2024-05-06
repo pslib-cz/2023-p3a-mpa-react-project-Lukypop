@@ -455,6 +455,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
               if (player.playerId === action.playerId) {
                 return {
                   ...player,
+                  money: player.money + 200,
                   position: 0,
                 };
               }

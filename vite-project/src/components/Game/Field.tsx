@@ -74,11 +74,7 @@ type FieldProps = {
         return (
             <div className={`${styles["field"]} ${styles["taxField"]}`}>
                 <p className={styles["heading"]}>{field.name}</p>
-                {currentColors.map((color) => 
-                {
-                    return (
-                        <div className={`${styles["field"]} ${styles["taxField"]}`}>
-                            <p className={styles["heading"]}>{field.name}</p>
+                
                             {currentColors.map((color) => 
                             {
                                 return (
@@ -91,14 +87,8 @@ type FieldProps = {
                             </div>
                         </div>
                     )
-                })}
+                }
 
-                <div>
-
-                </div>
-            </div>
-        )
-    }
     return (
         <div className={styles["field"]}>
             <p className={styles["heading"]}>{field.name}</p>

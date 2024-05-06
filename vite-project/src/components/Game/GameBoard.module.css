@@ -13,6 +13,26 @@
     display: flex;
     justify-content: center;
 }
+.help {
+    text-align: center;
+}
+.prices > h4 {
+    margin-bottom: 0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em;
+text-align: center;}
+.prices {
+    height: fit-content;
+    width: 250px;
+    justify-content: center;
+    margin: 1em;
+    padding: .75em 1.5em;
+    border-radius: 1em;
+    border: 1px solid white;
+}
 .playerprofile {
     display: flex;
     justify-content: space-between;

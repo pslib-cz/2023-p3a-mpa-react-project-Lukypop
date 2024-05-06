@@ -81,6 +81,44 @@ const Gameboard = () => {
         <>        
 
         <div className={styles["page"]}>
+            <div className={styles["prices"]}>
+                <h4 className={styles["help"]}>NÁPOVĚDA</h4>
+                <div style={{display: "flex", justifyContent: "center"}}>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Strana</th>
+                            <th>Cena</th>
+                            <th>Nájem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1/4</td>
+                            <td>100</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>2/4</td>
+                            <td>200</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>3/4</td>
+                            <td>300</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>4/4</td>
+                            <td>400</td>
+                            <td>200</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <p style={{textAlign: "center", marginTop: 0}}>Cena nájmu se znásobuje podle počtu vylepšení! </p>
+
+            </div>
             <div className={styles["gameboard"]}>
                 
                         
