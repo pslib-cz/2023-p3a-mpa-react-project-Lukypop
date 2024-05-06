@@ -25,6 +25,7 @@ table {
     margin: 1em;
 text-align: center;}
 .prices {
+    align-self: center;
     height: fit-content;
     width: 250px;
     justify-content: center;

@@ -15,7 +15,7 @@ const defaultGameState: GameState = {
   playerDone: false,
   playerRolled: false,
   message: "",
-  
+
   players: [
     {
       playerId: 0,
@@ -127,7 +127,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
 
       return {
         ...state,
-        message: "",	
+        message: "",
         playerDone: false,
         playerRolled: false,
         currentPlayer: (state.currentPlayer + 1) % state.players.length,
@@ -151,6 +151,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
 
       return {
         ...state,
+        message: `${player.name} koupil ovečku ${field.name} za ${field.price} korun!`,
         playerDone: true,
         players: state.players.map((player) => {
           if (player.playerId === action.playerId) {
@@ -196,6 +197,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
 
       return {
         ...state,
+        message: `Hráč ${player2.name} vylepšil pole ${field2.name}!`,
         playerDone: true,
         players: state.players.map((player) => {
           if (player.playerId === action.playerId) {
@@ -261,11 +263,14 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
     case "ROLL_DICE":
       const diceRoll =
         Math.floor(Math.random() * 6) + 1 + (Math.floor(Math.random() * 6) + 1);
+
       return {
         ...state,
         playerRolled: true,
+    
         players: state.players.map((player) => {
           if (player.playerId === state.currentPlayer) {
+
             return {
               ...player,
               position: (player.position + diceRoll) % 36,
@@ -297,6 +302,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
       }
       return {
         ...state,
+        message: `${player3.name} zaplatil daň ve výši ${field3.price} korun!`,
         playerDone: true,
         players: state.players.map((player) => {
           if (player.playerId === action.playerId) {
@@ -409,7 +415,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
       if (state.playerDone) {
         return state;
       }
-      
+
       const player6 = state.players.find(
         (player) => player.playerId === action.playerId
       );
@@ -717,16 +723,15 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
               return player;
             }),
             playerDone: true,
-         
-        };
+          };
         default:
-            return state;
+          return state;
       }
 
     default:
-        return state;}
-}
-
+      return state;
+  }
+};
 
 export const GameContext = createContext<{
   state: GameState;
