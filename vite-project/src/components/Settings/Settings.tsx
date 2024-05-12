@@ -9,10 +9,12 @@ const Settings = () => {
     
     
     return (
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <h1>Nastavení</h1>
-            {context.state.gameRunning ?  <GameRunning/> : <GameSettings/>}
-            
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'
+        }}>
+            <div style={{width: '280px'}}>
+                <h1 style={{textAlign: 'center'}}>Nastavení</h1>
+                {context.state.gameRunning ?  <GameRunning/> : <GameSettings/>}
+            </div>
         </div>
 
     );

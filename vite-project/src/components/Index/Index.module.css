@@ -1,0 +1,12 @@
+.mainmenu {
+    margin: 3em auto;
+    width:  600px;
+    padding: 1.5em;
+    border-radius: 2em;
+    border: 1px solid white;
+
+}
+.mainmenu > h1 {
+    margin-top: 0;
+    text-align: center;
+}

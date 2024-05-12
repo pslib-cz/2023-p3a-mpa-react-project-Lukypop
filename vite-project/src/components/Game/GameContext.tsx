@@ -15,15 +15,25 @@ const defaultGameState: GameState = {
   playerDone: false,
   playerRolled: false,
   message: "",
+  victory: false,
 
   players: [
     {
-      playerId: 0,
+      playerId: 900,
+      bankrupcy: false,
       name: "Player 0",
       money: 2000,
       position: 0,
       color: PlayerColor.RED,
     },
+    {
+      playerId: 901,
+      bankrupcy: false,
+      name: "Player 1",
+      money: 2000,
+      position: 0,
+      color: PlayerColor.GREEN,
+    }
   ],
 };
 
@@ -35,7 +45,7 @@ type ReducerAction =
   | { type: "REMOVE_PLAYER"; id: number }
   | { type: "CHANGE_START_MONEY"; startMoney: number }
   | { type: "CHANGE_MONEY_PER_ROUND"; moneyPerRound: number }
-  | { type: "NEXT_PLAYER" }
+  | { type: "NEXT_PLAYER"; id: number }
   | { type: "ROLL_DICE" }
   | { type: "BUY_FIELD"; playerId: number; fieldId: number }
   | { type: "UPGRADE_FIELD"; playerId: number; fieldId: number }
@@ -45,7 +55,8 @@ type ReducerAction =
   | { type: "LOAD"; newState: GameState }
   | { type: "TATRY"; playerId: number; fieldId: number }
   | { type: "BANKROT"; playerId: number }
-  | { type: "CHANCE"; playerId: number; fieldId: number };
+  | { type: "CHANCE"; playerId: number; fieldId: number }
+  | { type: "WIN"}
 
 const gameReducer = (state: GameState, action: ReducerAction): GameState => {
   const colors = ["RED", "GREEN", "YELLOW", "BLUE"] as PlayerColor[];
@@ -58,6 +69,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
         players: [
           ...state.players,
           {
+            bankrupcy: false,
             playerId: action.id,
             name: action.name,
             money: state.startMoney,
@@ -112,7 +124,7 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
         gameRunning: true,
       };
     case "END_GAME":
-      return state; //TODO//////////////////////////////////////////////////////////////////////////////////////////////////
+      return defaultGameState;
     case "NEXT_PLAYER":
       if (
         state.fields.find(
@@ -124,13 +136,17 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
       ) {
         return state;
       }
+      
+      
+  
 
-      return {
+        return {
         ...state,
         message: "",
         playerDone: false,
         playerRolled: false,
-        currentPlayer: (state.currentPlayer + 1) % state.players.length,
+
+        currentPlayer: action.id,
       };
     case "BUY_FIELD":
       if (state.playerDone) {
@@ -407,9 +423,15 @@ const gameReducer = (state: GameState, action: ReducerAction): GameState => {
           }
           return field;
         }),
-        players: state.players.filter(
-          (player) => player.playerId !== action.playerId
-        ),
+        players: state.players.map((player) => {
+          if (player.playerId === action.playerId) {
+            return {
+              ...player,
+              bankrupcy: true,
+            };
+          }
+          return player;
+        }),
       };
     case "CHANCE":
       if (state.playerDone) {

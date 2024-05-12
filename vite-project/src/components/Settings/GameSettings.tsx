@@ -26,17 +26,17 @@ export const GameSettings = () => {
         dispatch({ type: "EDIT_PLAYER", id: playerId, name: newName });
     };
     const removePlayer = (playerId: number) => {
-        if (state.players.length > 1) {
+        if (state.players.length > 2) {
             dispatch({ type: "REMOVE_PLAYER", id: playerId });
         } else {
-            alert('Alespoň jeden hráč musí zůstat');
+            alert('Alespoň dva hráči musí zůstat');
         }
     };
     
     return (
-        <div>
+        <div style={{textAlign: 'center'}}>
             {state.players.map((player) => (
-                <div>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '.5em'}}>
                     <input
                         type="text"
                         value={player.name}
@@ -45,24 +45,25 @@ export const GameSettings = () => {
                     <button onClick={() => removePlayer(player.playerId)}>Odstanit</button>
                 </div>
             ))}
-            <button onClick={() => addPlayer("Player " + (state.players.length))}>Přidat hráče</button>
-            <div>
+            <button style={{marginBottom: '.5em'}} onClick={() => addPlayer("Player " + (state.players.length))}>Přidat hráče</button>
+            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '.5em'}}>
                 <input
                     type="number"
                     value={state.startMoney}
                     onChange={e => changeStartMoney(parseInt(e.target.value))}
                 />
-                <label>Start Money</label>
+                <div><label>Rozpočet</label></div>
             </div>
-            <div>
+            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '.5em'
+            }}>
                 <input
                     type="number"
                     value={state.moneyPerRound}
                     onChange={e => changeMoneyPerRound(parseInt(e.target.value))}
                 />
-                <label>Money Per Round</label>
+                <div><label>Peníze za kolo</label></div>
             </div>
-            <button onClick={() => dispatch({ type: "START_GAME"})}>Start</button>
+            <button style={{width: '128px'}} onClick={() => dispatch({ type: "START_GAME"})}>Start</button>
         </div>
     );
 }

@@ -15,7 +15,10 @@ type FieldProps = {
   const ownership1 = field.type == "SHEEP"
   if (ownership1 && field.ownership !== null){
     const player = context.state.players.find(a => a.playerId === field.ownership);
-    return (
+    
+    if(field.timesUpgraded == 0)
+        {
+        return (
         <div className={styles["field"]} style={{border: `${player?.color} 1px solid`}}>
            <p className={styles["heading"]}>{field.name}</p>
             {currentColors.map((color) => 
@@ -23,7 +26,23 @@ type FieldProps = {
                 return <div className={styles[`player--${color}`]} style={{backgroundColor: color,  width: 20, height: 20, borderRadius: 50 }}></div>              
             })}
         </div>
-    )
+        )}
+        else if (field.timesUpgraded > 0){
+            console.log("fieldupgrade" + field.timesUpgraded)
+            return (
+
+                <div className={`${styles["field"]} ${styles[`fieldupgrade` + `${field.timesUpgraded}`]}`} style={{border: `${player?.color} 1px solid`, background: `./`}}>
+                
+            <p className={styles["heading"]}>{field.name}</p>
+             {currentColors.map((color) => 
+             {
+                 return <div className={styles[`player--${color}`]} style={{backgroundColor: color,  width: 20, height: 20, borderRadius: 50 }}></div>              
+             })}
+         </div>
+            )
+        }
+    
+    
   }
     if(field.type == "CHANCE"){
         return (

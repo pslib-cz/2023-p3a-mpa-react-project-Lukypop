@@ -1,4 +1,4 @@
-import { cloneElement, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { GameContext, GameContextProps } from "./GameContext.tsx";
@@ -11,7 +11,30 @@ const Gameboard = () => {
 
   const handleDiceRoll = () => {
     if (context.state.playerRolled === true) {
-      context.dispatch({ type: "NEXT_PLAYER" });
+      let nextplayer;
+      let i = 1;
+
+      while(true)
+      {
+        
+        console.log("dalsi hrac")
+        nextplayer = (context.state.players.findIndex((player) => player.playerId === context.state.currentPlayer) + i) % context.state.players.length;
+        i += 1;
+
+        console.log(nextplayer)
+        console.log(context.state.players[nextplayer].bankrupcy)
+        console.log(context.state.players)
+        if(i == 100){
+          console.log("break")
+          break;
+        }
+        if(!context.state.players[nextplayer].bankrupcy)
+        {
+          console.log("break spravne")
+          break;
+        }
+      }
+      context.dispatch({ type: "NEXT_PLAYER" , id: context.state.players[nextplayer].playerId});
     } else context.dispatch({ type: "ROLL_DICE" });
   };
 
@@ -19,6 +42,12 @@ const Gameboard = () => {
   const currentPlayer = context.state.players.find(
     (b) => b.playerId === context.state.currentPlayer
   );
+  // check how many players are there and how many are bankrupt
+  let playersCount = context.state.players.length;
+  let bankruptPlayers = context.state.players.filter((a) => a.bankrupcy).length;
+  if (playersCount - bankruptPlayers === 1) {
+    context.state.victory = true; 
+  }
   if (
     currentPlayer !== undefined &&
     context.state.playerDone === false &&
@@ -137,9 +166,9 @@ const Gameboard = () => {
     } else {
     }
   }
-  if (context.state.players.find((a) => a.money < 0)) {
+  if (context.state.players.find((a) => a.money < 0 && !a.bankrupcy)) {
     context.state.players
-      .filter((a) => a.money <= 0)
+      .filter((a) => a.money < 0)
       .map((b) => context.dispatch({ type: "BANKROT", playerId: b.playerId }));
   }
   if (context.state.players.length === 1) {
@@ -185,7 +214,7 @@ const Gameboard = () => {
               </tbody>
             </table>
           </div>
-          <p>Cena za vylepšení je vždy polovina ceny za každou úroveň</p>
+          <p style={{textAlign:"center"}}>Cena za vylepšení je vždy polovina kupní ceny a nájem se násobní počtem vylepšení!</p>
         </div>
         <div className={styles["gameboard"]}>
           {context.state.fields.map((field, index) => {
@@ -208,7 +237,10 @@ const Gameboard = () => {
               style={{ width: "100%", height: "100%" }}
               onClick={handleDiceRoll}
             >
-              {context.state.playerRolled ? "PASS TURN" : "ROLL DICE"}
+
+
+              {context.state.victory ? <Link style={{textDecoration: 'none', color: 'white'}} to="/End">GG</Link> : ((context.state.gameRunning ? (context.state.playerRolled ? "PASS TURN" : "ROLL DICE") : <Link style={{textDecoration: 'none', color: 'white'}} to="/Settings">Nastavení</Link>))}
+              
             </button>
           </div>
           <div style={{ gridArea: "9/7/8/5" }}>{buttonChoser}</div>
@@ -267,7 +299,8 @@ const Gameboard = () => {
                 ></div>
                 <div>
                   <p style={{ margin: 0 }}>{player.name}</p>
-                  <p style={{ margin: 0 }}>{player.money}</p>
+                  {player.bankrupcy ? <p style={{ margin: 0, color: 'red' }}>BAKROT</p> : <p style={{ margin: 0 }}>{player.money}</p>}
+                  
                 </div>
               </div>
             );
@@ -276,16 +309,16 @@ const Gameboard = () => {
 
         {hamburger ? (
           <div className={styles["hamburger"]}>
-            <div onClick={() => setHamburger(false)}>x</div>
+            <div onClick={() => setHamburger(false)}><p style={{margin: 0, fontSize: '1,5rem', width: '25'}}>x</p></div>
             <div>
-              <Link to="/">Zpět</Link>
+              <Link to="/Settings">Nastavení</Link>
             </div>
             <div>
               <Link to="/Rules">Pravidla</Link>
             </div>
-            <div>
-              <Link to="/Settings">Zpět do nastavení</Link>
-            </div>
+            
+            
+            
           </div>
         ) : (
           <div

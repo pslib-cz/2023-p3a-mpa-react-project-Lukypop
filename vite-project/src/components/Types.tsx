@@ -66,9 +66,11 @@ export type GameState = {
     playerDone: boolean;
     playerRolled: boolean;
     message: string;
+    victory: boolean;
 };   
 export type Player = {
     playerId: number;
+    bankrupcy: boolean;
     name: string;
     money: number;
     position: number;

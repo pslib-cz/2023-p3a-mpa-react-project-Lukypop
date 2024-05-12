@@ -58,3 +58,35 @@
     margin: 0;
     font-size: 13px;
 }
+.fieldupgrade1 {
+    background-image: url(../../img/star1.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.fieldupgrade2 {
+    background-image: url(../../img/star2.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldupgrade3 {
+    background-image: url(../../img/star3.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldupgrade4 {
+    background-image: url(../../img/star4.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldupgrade5 {
+    background-image: url(../../img/star5.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
