@@ -1,0 +1,92 @@
+.field {
+    border: 1px solid white;
+    width: 69px;
+    height: 69px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:"heading heading" 
+                        "red green"
+                         "blue yellow";    
+                         align-items: center;
+                         justify-items: center;
+
+}
+.chanceField {
+    background-image: url(../../img/questionmark.png);
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tavernField {
+    background-image: url(../../img/pivson.png);
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.tatryField {
+    background-image: url(../../img/Tatry.webp);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.taxField {
+    background-image: url(../../img/Tax.webp);
+    background-size: 52%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.player--red {
+    grid-area: red;
+    background-color: red;
+}
+.player--green {
+    grid-area: green;
+    background-color: green;
+}
+.player--blue {
+    grid-area: blue;
+    background-color: blue;
+}
+.player--yellow {
+    grid-area: yellow;
+    background-color: yellow;
+}
+.heading {
+    grid-area: heading;
+    text-align: center;
+    margin: 0;
+    font-size: 13px;
+}
+.fieldupgrade1 {
+    background-image: url(../../img/star1.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.fieldupgrade2 {
+    background-image: url(../../img/star2.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldupgrade3 {
+    background-image: url(../../img/star3.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldupgrade4 {
+    background-image: url(../../img/star4.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.fieldupgrade5 {
+    background-image: url(../../img/star5.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

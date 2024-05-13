@@ -1,0 +1,75 @@
+@font-face {
+    font-family: font;
+    src: url(../../fonts/FuturaLTProMedium.otf);
+}
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);  
+}
+.page {
+    font-family: font;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.help {
+    text-align: center;
+}
+.prices > h4 {
+    margin-bottom: 0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em;
+text-align: center;}
+.prices {
+    align-self: center;
+    height: fit-content;
+    width: 250px;
+    justify-content: center;
+    margin: 1em;
+    padding: .75em 1.5em;
+    border-radius: 1em;
+    border: 1px solid white;
+}
+.playerprofile {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    padding: .75em 1.5em;
+    margin: 1em;
+    border-radius: 1em;
+    border: 1px solid white;
+}
+.hamburger {
+    cursor: pointer;
+    position: absolute;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column; 
+    justify-content: right  ;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    text-align: right;
+}
+.hamburger:hover {
+    color: gray;
+}
+.hamburger > div > a {
+    text-decoration: none;
+    color: white;
+}
+.hamburger > div :hover{
+    color: gray;
+}
+.hamburger > p :hover {
+    color: gray;
+
+}
+html {
+    margin: 0;
+    padding: 0;
+}
