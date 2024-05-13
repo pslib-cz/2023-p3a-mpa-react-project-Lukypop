@@ -10,7 +10,7 @@ const EndScreen = () => {
             <button onClick={() => {context.dispatch({type: "END_GAME"})
                                     context.state.victory = false,
                                     context.state.gameRunning = false}
-        } style={{width: '160px'}}><Link style={{textDecoration: 'none', color: 'white'}} to="/Settings">Hrát znovu</Link></button>
+        } style={{width: '160px'}}><Link style={{textDecoration: 'none', color: 'white', width: '100%'}} to="/Settings">Hrát znovu</Link></button>
         </div>
     )
 }

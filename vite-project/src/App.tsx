@@ -19,7 +19,8 @@ function App() {
 
         
       </>
-    )
+    ),
+    {basename: '/2023-p3a-mpa-react-project-Lukypop'}
   );
 
   return (
